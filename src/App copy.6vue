@@ -1,0 +1,30 @@
+<!-- 属性绑定指令 -->
+<script>
+
+export default {
+  data: () => ({
+    picture:{
+      width: 200,
+      src :'https://i.weather.com.cn/images/mobile/mtqtj/2024/01/23/20240123101946FA1BB4BB26E9262DF4538CB01863AB3F.jpg'
+
+    }
+  })
+}
+</script>
+
+<template>
+
+  <!--  v-bind: 属性绑定 动态的修改属性值-->
+<img  v-bind:src="picture.src" v-bind:width="picture.width"><br>
+
+<!-- v-bind 可省略 :效果同v-bind: -->
+<img  :src="picture.src" :width="picture.width"><br>
+
+<input v-model="picture.width"> <br>
+
+<!-- 如果绑定值为null或者undefined 或者属性不支持的类型，属性会被从渲染的元素移除 -->
+<button @click="picture.width=null">宽度设置为null</button><br>
+<button @click="picture.width=aaa">宽度设置为非数字</button><br>
+
+<button @click="picture.src=null">src设置为null</button><br>
+</template> 
